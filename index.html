@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Box Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"> -->
+    <title>Inicio | Nanni Clothes</title>
+  </head>
+
+  <body>
+
+    <header class="page__header">
+
+      <nav class="navbar">
+
+        <div class="branding">
+          <a href="/" class="title__logo">Nanni Clothes</a>
+        </div>
+
+        <ul class="navbar__menu">
+          <li class="navbar__item"><a href="/" class="navbar__link active">Inicio</a></li>
+          <li class="navbar__item with__submenu">
+            <a href="../Página de ropa para Dani/pages/productos.html"
+               class="navbar__link">Productos</a>
+
+            <ul class="navbar__submenu">
+              <li class="submenu__item"><a href="" class="submenu__link">Tops</a></li>
+              <li class="submenu__item"><a href="" class="submenu__link">Camperas</a></li>
+              <li class="submenu__item"><a href="" class="submenu__link">Vestidos</a></li>
+            </ul>
+
+          </li>
+          <li class="navbar__item" >
+            <a href="../Página de ropa para Dani/pages/login.html" class="navbar__link">Ingresar</a>
+          </li>
+          <li class="navbar__item">
+            <a href="../Página de ropa para Dani/pages/register.html class"
+              class="navbar__link">Registrarse</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="container__wsp">
+        <div class="contact__wsp">
+          <a href=""><img src="/img/whatsappicon.svg"></a>
+        </div>
+      </div>
+
+    </header>
+
+    <div class="categories__wrapper" id="filter-categories">
+      <div class="categories__container">
+        <div class="categories__icon">
+          <i class='bx bxs-shopping-bags'></i>
+        </div>
+        <div class="categories__select">
+          <select name="categories" id="categories">
+            <option value>Categorías</option>
+            <option value="" id="categorie__option-1"><a href="#">Blusas</a></option>
+            <option value="" class="categorie__option-2">Tops</option>
+            <option value="" class="categorie__option-3">Camisas</option>
+          </select>
+        </div>
+      </div>
+      <div class="search__container">
+        <div class="search">
+          <div class="search__icon">
+            <i class='bx bx-search'></i>
+          </div>
+          <div class="search__input">
+          <input type="text" name="search" placeholder="Buscar Producto" autocomplete="off">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="glide__container">
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide">
+              <div class="slider__img">
+                <img src="/img/banner.webp">
+              </div>
+            </li>
+            <li class="glide__slide">
+              <div class="slider__img">
+                <img src="/img/cwfull-adidas.jpg">
+              </div>
+            </li>
+            <li class="glide__slide">
+              <div class="slider__img">
+                <img src="/img/Your life matters.png">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class='bx bxs-chevrons-left'></i></button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class='bx bxs-chevrons-right'></i></button>
+      </div>
+    </div> -->
+
+    <main>
+
+      <section class="shop__content" id="section-1">
+        <h2 class="section__title">Blusas</h2>
+        <ul class="shop__items">
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/blusa.jpg" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                    <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                    <div class="like__icon"><i class='bx bx-heart'></i></div>
+                  </div>
+                  <h4 class="item__name">Blusa de Mariposas</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/blusa.jpg" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                    <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                    <div class="like__icon"><i class='bx bx-heart'></i></div>
+                  </div>
+                  <h4 class="item__name">Blusa de Mariposas</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link"></a>
+              <picture class="item__img--container">
+                <span class="item__tag">Nuevo</span>
+                <img src="/img/blusa.jpg" class="item__img">
+              </picture>
+              <div class="item__content">
+                <div class="icons__container">
+                  <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                  <div class="like__icon"><i class='bx bx-heart'></i></div>
+                </div>
+                <h4 class="item__name">Blusa de Mariposas</h4>
+                <p class="item__price">$999,99</p>
+              </div>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/blusa.jpg" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                    <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                    <div class="like__icon"><i class='bx bx-heart'></i></div>
+                  </div>
+                  <h4 class="item__name">Blusa de Mariposas</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="shop__content" id="section-2">
+        <h2 class="section__title">Tops</h2>
+        <ul class="shop__items">
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/top.webp" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                    <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                    <div class="like__icon"><i class='bx bx-heart'></i></div>
+                  </div>
+                  <h4 class="item__name">Top Blanco</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/top.webp" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                    <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                    <div class="like__icon"><i class='bx bx-heart'></i></div>
+                  </div>
+                  <h4 class="item__name">Top Blanco</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link"></a>
+              <picture class="item__img--container">
+                <span class="item__tag">Nuevo</span>
+                <img src="/img/top.webp" class="item__img">
+              </picture>
+              <div class="item__content">
+                <div class="icons__container">
+                  <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                  <div class="like__icon"><i class='bx bx-heart'></i></div>
+                </div>
+                <h4 class="item__name">Top Blanco</h4>
+                <p class="item__price">$999,99</p>
+              </div>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/top.webp" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                    <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                    <div class="like__icon"><i class='bx bx-heart'></i></div>
+                  </div>
+                  <h4 class="item__name">Top Blanco</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="shop__content" id="section-3">
+        <h2 class="section__title">Camisas</h2>
+        <ul class="shop__items">
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/camisa.jpg" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                    <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                    <div class="like__icon"><i class='bx bx-heart'></i></div>
+                  </div>
+                  <h4 class="item__name">Camisa de Vaquero</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/camisa.jpg" class="item__img">
+                </picture>
+                <div class="item__content">
+                  <div class="icons__container">
+                  <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                  <div class="like__icon"><i class='bx bx-heart'></i></div>
+                </div>
+                  <h4 class="item__name">Camisa de Vaquero</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link"></a>
+              <picture class="item__img--container">
+                <span class="item__tag">Nuevo</span>
+                <img src="/img/camisa.jpg" class="item__img">
+              </picture>
+              <div class="item__content">
+                <div class="icons__container">
+                  <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                  <div class="like__icon"><i class='bx bx-heart'></i></div>
+                </div>
+                <h4 class="item__name">Camisa de Vaquero</h4>
+                <p class="item__price">$999,99</p>
+              </div>
+            </article>
+          </li>
+          <li class="shop__item">
+            <article class="item">
+              <a href="" class="item__link">
+                <picture class="item__img--container">
+                  <span class="item__tag">Nuevo</span>
+                  <img src="/img/camisa.jpg" class="item__img">
+                </picture>
+                <!-- <div class="item__content">
+                  <div class="icons__container">
+                  <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                  <div class="like__icon"><i class='bx bx-heart'></i></div>
+                </div> -->
+                  <h4 class="item__name">Camisa de Vaquero</h4>
+                  <p class="item__price">$999,99</p>
+                </div>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+    
+    </main>
+
+    <footer>
+      <div class="footer__wrap">
+        <div class="social__container">
+          <a href="#" class="social__icon"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="social__icon"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="social__icon"><i class='bx bxl-whatsapp'></i></a>
+        </div>
+        <div class="copyright__container">
+          <p>All Rights Reserved 2023 | &copy; Pancho Crack</p>
+        </div>
+      </div>
+      <div class="up__container">
+        <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+      </div>
+    </footer>
+    <script src="/js/index"></script>
+    <!-- GLIDE JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script>
+      new Glide('.glide', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 1,
+        // autoplay: 2000
+      }).mount()
+    </script> -->
+  </body>
+</html>
