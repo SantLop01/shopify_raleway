@@ -7,21 +7,20 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- Box Icons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"> -->
     <title>Inicio | Nanni Clothes</title>
   </head>
 
   <body>
 
     <header class="page__header">
+      
+      <div class="branding">
+        <a href="/" class="title__logo">Nanni Clothes</a>
+      </div>
+
+      <div class="bx bx-menu" id="menu__icon"></div>
 
       <nav class="navbar">
-
-        <div class="branding">
-          <a href="/" class="title__logo">Nanni Clothes</a>
-        </div>
-
         <ul class="navbar__menu">
           <li class="navbar__item"><a href="/" class="navbar__link active">Inicio</a></li>
           <li class="navbar__item with__submenu">
@@ -45,13 +44,6 @@
           </li>
         </ul>
       </nav>
-
-      <div class="container__wsp">
-        <div class="contact__wsp">
-          <a href=""><img src="/img/whatsappicon.svg"></a>
-        </div>
-      </div>
-
     </header>
 
     <div class="categories__wrapper" id="filter-categories">
@@ -62,7 +54,7 @@
         <div class="categories__select">
           <select name="categories" id="categories">
             <option value>Categorías</option>
-            <option value="" id="categorie__option-1"><a href="#">Blusas</a></option>
+            <option value="" id="categorie__option-1">Blusas</option>
             <option value="" class="categorie__option-2">Tops</option>
             <option value="" class="categorie__option-3">Camisas</option>
           </select>
@@ -80,33 +72,11 @@
       </div>
     </div>
 
-    <!-- <div class="glide__container">
-      <div class="glide">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
-            <li class="glide__slide">
-              <div class="slider__img">
-                <img src="/img/banner.webp">
-              </div>
-            </li>
-            <li class="glide__slide">
-              <div class="slider__img">
-                <img src="/img/cwfull-adidas.jpg">
-              </div>
-            </li>
-            <li class="glide__slide">
-              <div class="slider__img">
-                <img src="/img/Your life matters.png">
-              </div>
-            </li>
-          </ul>
-        </div>
+    <div class="container__wsp">
+      <div class="contact__wsp">
+        <a href=""><img src="/img/whatsappicon.svg"></a>
       </div>
-      <div class="glide__arrows" data-glide-el="controls">
-        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class='bx bxs-chevrons-left'></i></button>
-        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class='bx bxs-chevrons-right'></i></button>
-      </div>
-    </div> -->
+    </div>
 
     <main>
 
@@ -327,11 +297,11 @@
                   <span class="item__tag">Nuevo</span>
                   <img src="/img/camisa.jpg" class="item__img">
                 </picture>
-                <!-- <div class="item__content">
+                <div class="item__content">
                   <div class="icons__container">
                   <div class="cart__icon"><i class='bx bx-cart'></i></div>
                   <div class="like__icon"><i class='bx bx-heart'></i></div>
-                </div> -->
+                </div>
                   <h4 class="item__name">Camisa de Vaquero</h4>
                   <p class="item__price">$999,99</p>
                 </div>
@@ -358,16 +328,6 @@
         <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
       </div>
     </footer>
-    <script src="/js/index"></script>
-    <!-- GLIDE JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-    <script>
-      new Glide('.glide', {
-        type: 'carousel',
-        startAt: 0,
-        perView: 1,
-        // autoplay: 2000
-      }).mount()
-    </script> -->
+    <script src="/js/index.js"></script>
   </body>
 </html>

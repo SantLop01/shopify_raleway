@@ -1,9 +1,9 @@
-// scroll section
+// menu hamburger
 
-window.onscroll = () => {
-    let filter = document.querySelector('#filter-categories');
-    let header = document.querySelector('.page__header');
-    let altura = header.offsetHeight;
+header = document.querySelector('.navbar')
+menuIcon = document.querySelector('#menu__icon')
 
-    filter.classList.toggle('sticky', window.scrollY > altura);
-};
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    header.classList.toggle('active');
+}

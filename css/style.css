@@ -68,10 +68,19 @@ img {
 
 .page__header {
     position: relative;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: var(--main-color);
     z-index: 100;
     padding: 2rem 9%;
+}
+
+#menu__icon {
+    display: none;
+    font-size: 3.6rem;
+    color: white;
+    cursor: pointer;
 }
 
 .navbar {
@@ -434,4 +443,109 @@ footer {
 
 .up__container a:hover::before {
     height: 100%;
+}
+
+/* BREAKPOINTS */
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .page__header {
+        padding: 2rem 4%;
+    }
+
+    .categories__wrapper {
+        padding: 2rem 4%;
+    }
+
+    main {
+        padding: 2rem 4%;
+    }
+
+    footer {
+        padding: 2rem 4%;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu__icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 100%;
+        width: 100%;
+        background-color: var(--main-color);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .2);
+        transition: .3s ease;
+    }
+
+    .navbar.active {
+        right: 0;
+        transition-delay: .15s;
+    }
+
+    .navbar__menu {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 4%;
+        gap: 1rem;
+    }
+
+    .navbar__menu a {
+        display: block;
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 520px) {
+    html {
+        font-size: 50%;
+    }
+
+    .shop__items {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+        row-gap: 1.5rem;
+    }
+}
+
+@media (max-width: 468px) {
+    footer {
+        flex-direction: column-reverse;
+    }
+
+    .up__container {
+        padding-bottom: 1.5rem;
+    }
+
+}
+
+@media (max-width: 371px) {
+    .section__title {
+        text-align: center;
+    }
+
+    .item__content {
+        align-items: center;
+    }
+
+    .item__name {
+        text-align: center;
+    }
+
+    .social__container .social__icon {
+        width: 28px;
+        height: 28px;
+        border: 1px solid var(--text-color);
+    }
+
+    .up__container a {
+        padding: .2rem .6rem;
+    }
 }
