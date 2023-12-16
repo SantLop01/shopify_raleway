@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', 'Controlladores para admin')
-router.get('/create', 'Controlladores para la view')
-router.post('/create', 'Controlladores para el enviar el formulario')
-router.get('/edit/:id', 'Controlador para la view editar')
-router.put('/edit/:id', 'Controlador para editar')
-router.delete('/delete/:id', 'Controlador para borrar')
+router.get('/', (req, res) => res.send('Controladores para shop'))
+router.get('/create', (req, res) => res.send('Controladores para shop'))
+router.post('/create', (req, res) => res.send('Controladores para shop'))
+router.get('/edit/:id', (req, res) => res.send('Controladores para shop'))
+router.put('/edit/:id', (req, res) => res.send('Controladores para shop'))
+router.delete('/delete/:id', (req, res) => res.send('Controladores para shop'))
 
 module.exports = router;
