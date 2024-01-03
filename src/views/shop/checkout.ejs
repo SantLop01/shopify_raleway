@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+
+<main>
+    <section class="checkout__container">
+        <form action="" method="POST" class="checkout__form" id="checkout">
+            <h2 class="checkout__title">¡Ya casi está listo!</h2>
+            <hr class="form__divisor">
+            <div class="radio__input__box">
+                <input type="radio" id="yesDelivery" name="delivery" value="Con Envío" checked >
+                <label for="yesDelivery">Con Envío</label>
+            </div>
+            <div class="radio__input__box">
+                <input type="radio" id="noDelivery" name="delivery" value="Sin Envío" >
+                <label for="noDelivery">Sin Envío (Entrega a Coordinar)</label>
+            </div>
+            <div class="delivery__info" id="info">
+                <div class="form__box__checkout">
+                    <label class="form__label" for="city">Ciudad :</label>
+                    <input class="form__input" type="text" name="city" id="city" >
+                </div>
+                <div class="form__box__checkout">
+                    <label class="form__label" for="adress">Dirección :</label>
+                    <input class="form__input" type="text" name="adress" id="adress" >
+                </div>
+                <div class="form__box__checkout">
+                    <label class="form__label" for="aditional">Aclaraciones :</label>
+                    <input class="form__input" type="text" name="aditional" id="aditional" >
+                </div>
+            </div>
+            <hr class="form__divisor">
+            <div class="radio__input__box">
+                <input type="radio" id="cash" name="payment" value="Efectivo" checked >
+                <label for="cash">Efectivo</label>
+            </div>
+            <div class="radio__input__box">
+                <input type="radio" id="transfer" name="payment" value="Transferencia">
+                <label for="transfer">Transferencia</label>
+            </div>
+            <div class="form__text__box">
+                <label class="form__label" for="client">Cliente :</label>
+                <input class="form__input" type="text" name="client" id="client"
+                    required>
+            </div>
+            <div class="form__buttons">
+                <input class="form__btn" type="submit" value="Relizar Pedido">
+            </div>
+        </form>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>

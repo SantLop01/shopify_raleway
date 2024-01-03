@@ -1,10 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const authControllers = require('../controllers/authControllers');
+const { body } = require('express-validator');
+const { validateInputLogin } = require('../middlewares/validator');
 
-router.get('/login', (req, res) => res.send('Controladores para shop'))
-router.post('/login', (req, res) => res.send('Controladores para shop'))
-router.get('/register', (req, res) => res.send('Controladores para shop'))
-router.post('/register', (req, res) => res.send('Controladores para shop'))
-router.get('/logout', (req, res) => res.send('Controladores para shop'))
+const loginValidation = [
+    body('email') 
+      .isEmail()
+      .withMessage('Ingresa un correo valido'),
+    body('password')
+      .isLength({ min: 6 })
+      .isAlphanumeric()
+      .withMessage('Ingresa una contraseña valida')
+]
+
+router.get('/login', authControllers.loginView);
+router.post('/login', loginValidation, validateInputLogin, authControllers.loginUser);
+router.get('/register', authControllers.registerView);
+router.post('/register', authControllers.registerUser);
+router.get('/logout', authControllers.logoutUser);
 
 module.exports = router;

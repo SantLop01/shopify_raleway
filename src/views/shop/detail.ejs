@@ -1,0 +1,78 @@
+<%- include('../partials/header') %>
+
+<main class="detail">
+    <section class="item__wrapper">
+        <div class="item__container">
+
+            <div class="show__item">
+                <div class="">
+                  <ul class="slider__items">
+                    <li class="slider__item">
+                        <button onclick="changeImage('<%= item.image_front %>')" class="slider__prev"><i class='bx bx-chevrons-left'></i></button>
+                        <picture class="image__wrap">
+                            <img src="<%= item.image_front %>" id="img__principal">
+                        </picture>
+                        <button onclick="changeImage('<%= item.image_back %>')" class="slider__next"><i class='bx bx-chevrons-right'></i></button>
+                    </li>
+                </ul>
+                </div>
+            </div>
+
+
+            <div class="item__info">
+                <p class="item__category"><%= item.category_name %></p>
+                <h1 class="item__name"><%= item.product_name %></h1>
+                <p class="item__description"><%= item.product_description %></p>
+                <p class="item__price">$ <%= item.price %></p>
+                <div class="item__wsp">
+                    <form action="/shop/checkout" method="GET">
+                        <input type="hidden" name="name" value="<%= item.product_name %>">
+                        <input type="hidden" name="price" value="<%= item.price %>">
+                        <button type="submit" class="info__wsp">Comprar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <button class="cart__btn">
+            <div class="btn__content">
+                <span class="cart__icon"><i class='bx bx-cart bx-tada'></i></span>
+                <p class="cart__info">Agregar al pedido</p>
+                <p class="cart__info">$ <%= item.price %></p>
+            </div>
+        </button>
+    </section>
+
+    <section class="slider__wrap">
+        <h2 class="slider__title">Productos Relacionados</h2>
+    <div class="slider container glide">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="slider__items glide__slides">
+                <% related.forEach(item => { %>
+                    <li class="slider__item glide__slide">
+                        <article class="card-item">
+                            <a class="card-item__link" href="<%= item.product_id %>">
+                               <picture class="card-item__cover">
+                                    <span class="item__tag">Nuevo</span>
+                                    <img class="card-item__img--front" src="<%= item.image_front %>" alt="<%= item.image_front %>"">
+                                </picture>
+                               <div class="card-item__content">
+                                    <p class="card-item__licence"><%= item.category_name %></p>
+                                    <h4 class="card-item__name"><%= item.product_name %></h4>
+                                    <p class="card-item__price">$ <%= item.price %>"</p>
+                                    <p class="card-item__promo">¡Compra ya!</p>
+                               </div>
+                            </a>
+                        </article>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left"  data-glide-dir="<"><i class='bx bxs-chevron-left'></i></button>
+            <button class="glide__arrow glide__arrow--right"  data-glide-dir=">"><i class='bx bxs-chevron-right'></i></button>
+        </div>
+    </div>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<main id="create" class="container">
+    <h2 class="create__title">Crear Producto</h2>
+    <form class="create__form" action="/admin/create" method="POST" enctype="multipart/form-data">
+        <div class="form__flex">
+            <div class="form__box--flex">
+                <label class="form__label" for="category">Categoría:</label>
+                <select class="form__select" name="category" id="category" required>
+                    <option value="" disabled selected hidden>Seleccionar</option>
+                    <% categories.forEach(categorie => { %>
+                        <option value="<%= categorie.category_id %>"><%= categorie.category_name %></option>
+                    <% });  %>
+                </select>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="name">Nombre del producto:</label>
+                <input class="form__input" type="text" name="name" id="name" placeholder="Kakashi Hatake Shippuden Saga" required>
+            </div>
+        </div>
+        <div class="create__category">
+            <p>¿Necesitas crear una nueva categoría? <a href="/admin/create-category">Hazlo aquí</a></p>
+        </div>
+        <div>
+            <label class="form__label" for="price">Descripción :</label>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"
+                required></textarea>
+        </div>
+        <div class="form__flex">
+            <div class="form__box--flex">
+                <label class="form__label" for="price">Precio:</label>
+                <div class="form__input--wrapper"><span>$</span><input class="form__input" type="text" name="price"
+                        id="price" data-type="currency" placeholder="0.000,00"></div>
+            </div>
+        </div>
+        <div class="alert__txt">
+            <p>¡Atención!</p>
+            <p>Si quieres cambiar las imgenes actuales, debes subir la 1ra y 2da sin excepción.</p>
+        </div>
+        <div class="form__flex">
+            <div class="form__box__file">
+                <label class="form__label" for="image1">1ra Imagen :</label>
+                <input type="file" name="image1" id="img1">
+            </div>
+            <div class="form__box__file">
+                <label class="form__label" for="image2">2da Imagen :</label>
+                <input type="file" name="image2" id="img2">
+            </div>
+        </div>
+        <div class="form__flex">
+            <input class="form__btn" type="submit" value="Agregar Producto">
+            <input class="form__btn" type="reset" value="Limpiar">
+        </div>
+    </form>
+</main>
+
+<%- include('../partials/footer') %>

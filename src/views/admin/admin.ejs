@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+    <main id="admin" class="container">
+        <section class="admin__search">
+            <i class='bx bx-search'></i>
+            <input class="admin__search-bar" type="text" name="search" id="search"
+                placeholder="código, nombre o categoria">
+        </section>
+        <section class="admin__list">
+            <div class="admin__header">
+                <h2><i class='bx bx-list-ul'></i> Listado de Productos</h2>
+                <a href="admin/create" class="admin__add"><i class='bx bxs-plus-circle'></i> Agregar</a>
+            </div>
+            <div class="admin-table">
+                <header class="admin-table__header">
+                    <h3 class="table__head__id">ID</h3>
+                    <h3 class="table__head__price">Precio</h3>
+                    <h3 class="table__head__name">Nombre del Producto</h3>
+                    <h3 class="table__head__category">Categoría</h3>
+                    <h3 class="table__head__edit">Editar</h3>
+                    <h3 class="table__head__delete">Eliminar</h3>
+                </header>
+                <% items.forEach(item => { %>
+                    <article class="admin-table__row">
+                        <p><%= item.product_id %></p>
+                        <p><%= item.price %></p>
+                        <p><%= item.product_name %></p>
+                        <p><%= item.category_id %></p>
+                        <a href="admin/edit/<%= item.product_id %>" class="row__edit"><i class='bx bxs-edit'></i></a>
+                        <form action="admin/delete/<%= item.product_id %>?_method=DELETE" method="POST" class="row__form">
+                            <button type="submit"><i class='bx bxs-trash'></i></button>
+                        </form>
+                    </article>
+                <%  }); %>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>

@@ -1,0 +1,136 @@
+<%- include('partials/header') %>
+
+    <div class="categories__wrapper" id="filter-categories">
+        <div class="categories__container">
+            <div class="categories__icon">
+                <i class='bx bxs-shopping-bags'></i>
+            </div>
+            <div class="categories__select">
+                <select name="categories" id="categories__select">
+                    <option value="" disabled selected hidden>Categorías</option>
+                    <% categories.forEach(category=> { %>
+                        <option value="<%= category.category_id %>">
+                            <%= category.category_name %>
+                        </option>
+                        <% }) %>
+                </select>
+            </div>
+        </div>
+        <div class="search__container">
+            <div class="search__wrap">
+                <div class="search">
+                    <div class="search__icon">
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <div class="search__input">
+                        <input type="text" name="search" id="search" placeholder="Buscar Producto" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <ul class="search__filter" id="search__list">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="container__wsp">
+        <div class="contact__wsp">
+            <a href="https://wa.me/543876153050&text=¡Hola%21"><img src="../../img/whatsappicon.svg"></a>
+        </div>
+    </div>
+
+    <main>
+
+        <% categories.forEach(category=> { %>
+            <% const products = filterByCategory[category.category_id] %>
+            <% if (products === undefined || products.length === 0) { %>
+                <section class="shop__content" id="cat__<%= category.category_id %>">
+                    <div class="section__title__wrap">
+                        <h2 class="section__title">
+                            <i class='bx bxs-shopping-bag bx-tada' style='color:#c43e3e' ></i>
+                            <%= category.category_name %>
+                        </h2>
+                        <p class="section__description"><%= category.category_description %></p>
+                    </div>
+                    <p class="section__empty">¡Los productos serán agregados proximamente!</p> 
+                </section>
+            <% } else { %>
+                <section class="shop__content" id="cat__<%= category.category_id %>">
+                    <div class="section__title__wrap">
+                        <h2 class="section__title">
+                            <i class='bx bxs-shopping-bag bx-tada' style='color:#c43e3e' ></i>
+                            <%= category.category_name %>
+                        </h2>
+                        <p class="section__description"><%= category.category_description %></p>
+                    </div>
+                    <ul class="shop__items">
+                        <% products.forEach(product => { %>
+                            <li class="shop__item">
+                                <article class="item">
+                                        <div>
+                                            <a href="shop/item/<%= product.product_id %>" class="item__link">
+                                                <picture class="item__img--container">
+                                                    <span class="item__tag">Nuevo</span>
+                                                    <img src="<%= product.image_front %>" class="item__img">
+                                                </picture>
+                                            </a>
+                                        </div>
+                                        <div class="item__content">
+                                            <div class="icons__container">
+                                                <div class="cart__icon"><i class='bx bx-cart'></i></div>
+                                                <div class="like__icon"><i class='bx bx-heart'></i></div>
+                                            </div>
+                                            <h4 class="item__name">
+                                                <%= product.product_name %>
+                                            </h4>
+                                            <p class="item__price">
+                                                $ <%= product.price%>
+                                            </p>
+                                        </div>
+                                </article>
+                            </li>
+                        <% });%>
+                    </ul>
+                </section>
+            <% } %>
+        <% }); %>
+
+        <section class="slider__wrap">
+            <h2 class="slider__title">
+                <i class='bx bxs-hot' style='color:#ff8000' ></i>
+              Productos Populares
+            </h2>
+        <div class="slider container glide">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="slider__items glide__slides">
+                    <% items.forEach(item => { %>
+                        <li class="slider__item glide__slide">
+                            <article class="card-item">
+                                <a class="card-item__link" href="shop/item/<%= item.product_id %>">
+                                   <picture class="card-item__cover">
+                                        <span class="item__tag">Nuevo</span>
+                                        <img class="card-item__img--front" src="<%= item.image_front %>" alt="<%= item.image_front %>"">
+                                    </picture>
+                                   <div class="card-item__content">
+                                        <p class="card-item__licence"><%= item.category_name %></p>
+                                        <h4 class="card-item__name"><%= item.product_name %>"</h4>
+                                        <p class="card-item__price">$ <%= item.price %>"</p>
+                                        <p class="card-item__promo">¡Compra ya!</p>
+                                   </div>
+                                </a>
+                            </article>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left"  data-glide-dir="<"><i class='bx bxs-chevron-left'></i></button>
+                <button class="glide__arrow glide__arrow--right"  data-glide-dir=">"><i class='bx bxs-chevron-right'></i></button>
+            </div>
+        </div>
+        </section>
+    
+
+    </main>
+
+    <%- include('partials/footer') %>

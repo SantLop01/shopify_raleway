@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<main id="create" class="container">
+
+    <% if (locals.message) { %>
+        <h2 class="create__title"><%= locals.message %></h2>
+    <% } else { %>
+        <h2 class="create__title">Crear Categoría</h2>
+        <form class="create__form" action="/admin/create-category" method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="form__box--flex">
+                <label class="form__label" for="name">Nombre de la categoría:</label>
+                <input class="form__input" type="text" name="name" id="name" placeholder="Blusas, Camisa">
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="description">Descripción de la categoría:</label>
+                <input class="form__input" type="text" name="description" id="description" placeholder="Ropa de Verano">
+            </div>
+            <div class="form__flex">
+                <input class="form__btn" type="submit" value="Agregar Categoría">
+            </div>
+        </form>
+    <% }; %>
+</main>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<main>
+    <section class="form__container">
+        <div class="form__wrap">
+            <div class="form__text">
+                <h1 class="form__title">Sign Up</h1>
+                <p class="form__subtitle">Por favor ingresa tu información</p>
+            </div>
+            <form action="/auth/register" class="login" method="POST" enctype="application/x-www-form-urlencoded">
+                <div class="input__wrap">
+                    <input type="text" name="nick" id="nick"  placeholder="Ej: Pancho">
+                </div>
+                <div class="input__wrap">
+                    <input type="text" name="email" id="email"  placeholder="Email">
+                </div>
+                <div class="input__wrap">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="btn__wrap">
+                    <input type="submit" value="Register">
+                </div>
+    
+                <div class="advice">
+                    <p>DO YOU ALREADY HAVE A ACCOUNT?</p>
+                    <a href="/auth/login">LOGIN</a>
+                </div>
+            </form>
+            <ul class="prueba">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>

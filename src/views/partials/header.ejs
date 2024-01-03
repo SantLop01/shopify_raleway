@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | Nanni Clothes</title>
+    <!-- Box Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- Swipper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+    <header class="page__header">
+
+        <div class="branding">
+            <a href="/home" class="title__logo">Nanni Clothes</a>
+        </div>
+
+        <div class="bx bx-menu" id="menu__icon"></div>
+            <% if (locals.isLogged) { %>
+                <nav class="navbar">
+                    <ul class="navbar__menu">
+                        <li class="navbar__item">
+                            <a href="/home" class="navbar__link active">Inicio</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="/admin" class="navbar__link">Admin</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="/admin/create" class="navbar__link">Create</a>
+                        </li>
+                        <li class="navbar__item with__submenu">
+                            <a href="/auth/logout" class="navbar__link">Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+            <% } else { %>
+                <nav class="navbar">
+                    <ul class="navbar__menu">
+                        <li class="navbar__item"><a href="/home" class="navbar__link active">Inicio</a></li>
+                        <li class="navbar__item with__submenu">
+                            <a href="../Página de ropa para Dani/pages/productos.html" class="navbar__link">Productos</a>
+        
+                            <ul class="navbar__submenu">
+                                <li class="submenu__item"><a href="" class="submenu__link">Tops</a></li>
+                                <li class="submenu__item"><a href="" class="submenu__link">Camperas</a></li>
+                                <li class="submenu__item"><a href="" class="submenu__link">Vestidos</a></li>
+                            </ul>
+        
+                        </li>
+                        <li class="navbar__item">
+                            <div class="buttons__admin">
+                                <a href="/auth/login" class="login__button">Login</a>
+                                <a href="/auth/register" class="register__button">Register</a>
+                            </div>
+                        </li>
+                        <!-- <li class="navbar__item">
+                            <a href="/auth/register" class="navbar__link">Register</a>
+                        </li> -->
+
+                        <li class="navbar__item cart__wrap">
+                            <div class="cart__container">
+                                <span class="cart__icon__counter"><i class='bx bx-cart'></i></span>
+                                <div class="cart__count">
+                                    <span id="products__count">0</span>
+                                </div>
+                            </div>
+
+                            <div class="container__cart__products hidden__cart" id="products__container">
+                                <div class="row__products hidden">
+                                    <div class="cart__product">
+                                        <div class="info__product">
+                                            <span class="info__count">1</span>
+                                            <p class="info__product__name">Blusa de Mariposas</p>
+                                            <span class="info__price">$40</span>
+                                        </div>
+                                        <span class="close__icon"><i class='bx bx-x'></i></span>
+                                    </div>
+                                </div>
+                                <div class="cart__total hidden">
+                                    <h3>Total</h3>
+                                    <span class="total__price">$ 100</span>
+                                </div>
+                                <p class="cart__empty">The cart is empy</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </nav>
+            <% }; %>
+        </div>
+    </header>
