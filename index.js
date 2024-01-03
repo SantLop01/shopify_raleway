@@ -15,7 +15,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 4008;
 
 // Routes for static archives
-app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, "public")));
 
 // User Sessions
 
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 // Configuración de Ejs
 app.set('view engine', 'ejs');
-app.set('views', path.resolve(__dirname, 'src/views'));
+app.set('views', path.resolve(__dirname, "./src/views"));
 
 // Parsea los datos recibidos por POST
 app.use(express.urlencoded());
