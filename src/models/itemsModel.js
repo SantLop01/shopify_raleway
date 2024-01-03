@@ -1,6 +1,7 @@
 const { conn } = require('../config/conn');
 const  { uploadFiles }  = require('../middlewares/uploadFiles');
 const fs = require('fs');
+const { cloudinary } = require('../utils/uploadImages');
 const path = require('path');
 
 const getAll = async () => {
@@ -69,7 +70,7 @@ const createOne = async (params) => {
         console.log('Lo que llega antes de la variable', params)
         const prueba = [params]
         console.log('Lo que llega antes del insert', prueba)
-        const [rows] = conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, dues, image_front, image_back, category_id) VALUES ?', [prueba]);
+        const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, dues, image_front, image_back, category_id) VALUES ?', [prueba]);
         const response = {
             isError: false,
             data: rows
@@ -88,6 +89,19 @@ const createOne = async (params) => {
 
 const editOne = async (params, id) => {
     try {
+        const [ data ] = await conn.query('SELECT product.*, category.category_name FROM product LEFT JOIN category ON product.category_id = category.category_id WHERE ?;', id);
+        const imageFront = data[0].image_front;
+        const imageBack = data[0].image_back;
+        const imagesToDelte = [imageFront, imageBack]
+
+        for (let image of imagesToDelte) {
+            const url = image.split('/');
+            const name = url[url.length - 1];
+            const [ id ] = name.split('.');
+
+            cloudinary.uploader.destroy(id);
+        }
+        
         const [ rows ] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);
         const response = {
             isError: false,
@@ -109,12 +123,18 @@ const editOne = async (params, id) => {
 const deleteOne = async (params) => {
     try {
         const [ product ] = await conn.query('SELECT image_front, image_back FROM product WHERE ?', params);
-        const imageFront = `public/img/${path.basename(product[0].image_front)}`;
-        const imageBack = `public/img/${path.basename(product[0].image_back)}`;
+        const imageFront = product[0].image_front;
+        const imageBack = product[0].image_back;
         const imagesToDelte = [imageFront, imageBack]
-        imagesToDelte.forEach(image => {
-            fs.unlinkSync(image);
-        });
+
+        for (let image of imagesToDelte) {
+            const url = image.split('/');
+            const name = url[url.length - 1];
+            const [ id ] = name.split('.');
+
+            cloudinary.uploader.destroy(id);
+        }
+
         const [ rows ] = await conn.query('DELETE FROM product WHERE ?', params);
         const response = {
             isError: false,

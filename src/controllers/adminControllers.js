@@ -1,10 +1,9 @@
-const itemServices = require('../services/itemServices')
-const categoryServices = require('../services/categoryServices')
+const itemServices = require('../services/itemServices');
+const categoryServices = require('../services/categoryServices');
 
 module.exports = {
     adminView: async (req, res) => {
         const { data } = await itemServices.getAllItems();
-        console.log('Lo que llega a Admin', data)
         res.render('admin/admin', {
             title: 'Admin || Nanni Clothes',
             items: data
@@ -27,10 +26,8 @@ module.exports = {
 
     editItem: async (req, res) => {
         const item = req.body;
-        console.log('Lo que se envía desde el formulario edit', item)
         const id = req.params.id;
         const files = req.files;
-        console.log('Lo que se envía desde el formulario en las imagenes', files)
         await itemServices.editItem(item, id, files);
         res.redirect('/admin')
     },
@@ -47,7 +44,7 @@ module.exports = {
         const item = req.body;
         console.log('Esto es lo que se envía desde el formulario:', item)
         const files = req.files;
-        console.log('Esto es lo que llega de item:', files)
+        console.log('Esto es lo que llega de item en el CONTROLADOR:', files)
         await itemServices.createItem(item, files);
         res.redirect('/admin')
     },

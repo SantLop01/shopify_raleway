@@ -1,4 +1,5 @@
 const itemsModel = require('../models/itemsModel');
+const { cloudinary } = require('../utils/uploadImages');
 
 const getAllItems = async () => {
     return await itemsModel.getAll();
@@ -13,6 +14,19 @@ const getOneItem = async (id) => {
 }
 
 const createItem = async (item, files) => {
+    const imagesToUpload = [files.image1[0].path, files.image2[0].path];
+
+    let securesURL = []
+    for (let image of imagesToUpload) {
+        const result = await cloudinary.uploader.upload(image, {
+            type: "fetch",
+            effect: "improve",
+        }).catch(error => {
+            console.log('Error de la subida de imagenes', error)
+        })
+        securesURL.push(result.secure_url)
+    };
+
     const itemSchema = {
         product_name: item.name,
         product_description: item.description,
@@ -20,17 +34,29 @@ const createItem = async (item, files) => {
         dues: item.dues,
         stock: item.stock,
         discount: item.discount,
-        image_front: '../../img/' + files.image1[0].filename,
-        image_back: '../../img/' + files.image2[0].filename,
+        image_front: securesURL[0],
+        image_back: securesURL[1],
         category_id: item.category
     }
-    console.log('En services:', itemSchema)
+
     return await itemsModel.createOne(Object.values(itemSchema));
 }
 
 const editItem = async (item, id, files) => {
-    console.log('Lo que llega a item Service en datos:', item);
-    console.log('Lo que llega a item Service en imagenes:', files);
+
+    const imagesToUpload = [files.image1[0].path, files.image2[0].path];
+
+    let securesURL = []
+    for (let image of imagesToUpload) {
+        const result = await cloudinary.uploader.upload(image, {
+            type: "fetch",
+            effect: "improve",
+        }).catch(error => {
+            console.log('Error de la subida de imagenes', error)
+        })
+        securesURL.push(result.secure_url)
+    };
+
     const itemSchema = {
         product_name: item.name,
         product_description: item.description,
@@ -38,11 +64,11 @@ const editItem = async (item, id, files) => {
         dues: item.dues,
         stock: item.stock,
         discount: item.discount,
-        image_front: '../../img/' + files.image1[0].filename,
-        image_back: '../../img/' + files.image2[0].filename,
+        image_front: securesURL[0],
+        image_back: securesURL[1],
         category_id: item.category
     }
-    console.log('EL ESQUEMA CREADO:', itemSchema);
+
     return await itemsModel.editOne(itemSchema, {product_id: id});
 }
 
