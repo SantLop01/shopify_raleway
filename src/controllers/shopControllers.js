@@ -25,6 +25,9 @@ module.exports = {
         const id = req.params.id;
         const item = await itemServices.getOneItem(id);
         const { data } = item;
+        if (!data.length) {
+            return res.status(404).redirect('/home');
+        }
         const cat_id = data[0].category_id;
         const { relatedItems } = await itemServices.getRelated(cat_id);
         res.render('shop/detail', {

@@ -45,9 +45,6 @@ const getRelated = async (params) => {
 const getOne = async (params) => {
     try {
         const [rows] = await conn.query('SELECT product.*, category.category_name FROM product LEFT JOIN category ON product.category_id = category.category_id WHERE ?;', params);
-        // const cat_id = rows[0].category_id;
-        // const [relatedItems] = await conn.query('SELECT * FROM product WHERE product.category_id = ?;', cat_id);
-        console.log('De la respuesa', rows)
         const response = {
             isError: false,
             data: rows
