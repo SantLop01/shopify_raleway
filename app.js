@@ -27,8 +27,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// User Active
-
 // Configuración de Ejs
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, "./src/views"));

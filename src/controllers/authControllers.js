@@ -22,12 +22,14 @@ module.exports = {
                 return res.redirect('/admin')
             }
         }
-        res.status(401).render('auth/login')
+        res.status(401).render('auth/login', {
+            title: 'Login | Nanni Clothes',
+        });
     },
 
     registerView: (req, res) => {
         res.render('auth/register', {
-            title: 'Sign Up | Nanni Clothes'
+            title: 'Register | Nanni Clothes'
         });
     },
 

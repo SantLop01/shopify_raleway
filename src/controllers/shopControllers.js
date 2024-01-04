@@ -14,7 +14,7 @@ module.exports = {
             filterByCategory[id].push(product);
         });
         res.render('home', {
-            title: 'Algo',
+            title: 'Home | Nanni Clothes',
             items: data,
             categories: categories.data,
             filterByCategory
@@ -28,7 +28,7 @@ module.exports = {
         const cat_id = data[0].category_id;
         const { relatedItems } = await itemServices.getRelated(cat_id);
         res.render('shop/detail', {
-            title: 'Product Detail || Nanni Clothes',
+            title: 'Detail | Nanni Clothes',
             item: data[0],
             related: relatedItems
         })
@@ -36,18 +36,16 @@ module.exports = {
 
     checkoutView: (req, res) => {
         res.render('shop/checkout', {
-            title: 'Nanni Clothes | Checkout'
+            title: 'Checkout | Nanni Clothes'
         });
     },
 
     search: async (req, res) => {
         const name = req.body.filterWord.toLowerCase();
-        console.log('Lo que devuelve text:', name);
         const { data } = await itemServices.getAllItems();
         const filtered = data.filter(item => 
            item.product_name.toLowerCase().includes(name)
         );
-        console.log('Lo filtrado', filtered);
         res.json(filtered);
     }
 }

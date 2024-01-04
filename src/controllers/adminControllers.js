@@ -5,20 +5,18 @@ module.exports = {
     adminView: async (req, res) => {
         const { data } = await itemServices.getAllItems();
         res.render('admin/admin', {
-            title: 'Admin || Nanni Clothes',
+            title: 'Admin | Nanni Clothes',
             items: data
         })
     },
 
     editView: async (req, res) => {
         const id = req.params.id;
-
         const item = await itemServices.getOneItem(id);
-        console.log('Lo que llega de items', item)
         const category = await categoryServices.getCategories();
         const { data } = item;
         res.render('admin/edit', {
-            title: 'Edit Item || Nanni Clothes',
+            title: 'Edit Item | Nanni Clothes',
             item: data[0],
             categories: category.data
         });
@@ -35,16 +33,14 @@ module.exports = {
     createView: async (req, res) => {
         const category = await categoryServices.getCategories();
         res.render('admin/create', {
-            title: 'Create Item || Nanni Clothes',
+            title: 'Create Item | Nanni Clothes',
             categories: category.data
         });
     },
 
     createItem: async (req, res) => {
         const item = req.body;
-        console.log('Esto es lo que se envía desde el formulario:', item)
         const files = req.files;
-        console.log('Esto es lo que llega de item en el CONTROLADOR:', files)
         await itemServices.createItem(item, files);
         res.redirect('/admin')
     },
@@ -52,7 +48,7 @@ module.exports = {
     createCategoryView: (req, res) => {
         res.locals.message = req.session.message;
         res.render('admin/createCategory', {
-            title: 'Create Category || Nanni Clothes',
+            title: 'Create Category | Nanni Clothes',
         });
     },
 
