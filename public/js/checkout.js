@@ -27,24 +27,24 @@ form.addEventListener('submit', (e) => {
     const payment = form.querySelector('input[name="payment"]:checked').value;
 
     const deliveryParams = `¡Hola! Me gustaría realizar un pedido: 
-       Producto: ${productName}_ 
-       Precio: $ ${productPrice}_ 
-       Nombre: ${form.client.value}_   
-       Método de envio: ${delivery}_
-       Ciudad: ${form.city.value}_
-       Dirección: ${form.adress.value}_
-       Observación: ${form.aditional.value}_  
-       Método de pago: ${payment}_
-       ¡Gracias!`;
+Producto: ${productName}_ 
+Precio: $ ${productPrice}_ 
+Nombre: ${form.client.value}_   
+Método de envio: ${delivery}_
+Ciudad: ${form.city.value}_
+Dirección: ${form.adress.value}_
+Observación: ${form.aditional.value}_  
+Método de pago: ${payment}_
+¡Gracias!`;
 
     const noDeliveryParams = `¡Hola! Me gustaría realizar un pedido: 
-       Producto: ${productName}_ 
-       Precio: $ ${productPrice}_ 
-       Nombre: ${form.client.value}_   
-       Método de envio: ${delivery} 
-       *Entrega a Coordinar*_
-       Método de pago: ${payment}_
-       ¡Gracias!`;
+Producto: ${productName}_ 
+Precio: $ ${productPrice}_ 
+Nombre: ${form.client.value}_   
+Método de envio: ${delivery} 
+*Entrega a Coordinar*_
+Método de pago: ${payment}_
+¡Gracias!`;
 
     let infoUser = '';
     if (delivery === 'Con Envío') {

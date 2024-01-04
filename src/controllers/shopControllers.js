@@ -6,6 +6,9 @@ module.exports = {
         const { data } = await itemServices.getAllItems();
         const categories = await categoryServices.getCategories();
         const filterByCategory = {};
+        if (!data.length) {
+            return res.status(404).redirect('/home');
+        }
         data.forEach(product => {
             id = product.category_id;
             if (!filterByCategory[id]) {
